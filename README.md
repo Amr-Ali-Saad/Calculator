@@ -4,8 +4,8 @@
 
 ## Currently :-
  This calculator is very simple, So it supports only one calculation at a time, 
- and doesn't supports Multiple operators in calculations,
-<b>But The bright side ... The Calculator supports Keyboard inputs!<b/>
+ and doesn't supports Multiple operators in calculations, <br>
+<b>But The bright side 💫... The Calculator supports Keyboard inputs!<b/>
 
 ## Information:-
 <b>Working method idea by:<b/> Amr Ali 
