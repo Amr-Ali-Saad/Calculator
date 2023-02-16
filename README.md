@@ -1,4 +1,4 @@
-# Simple Calculator (BETA)
+# Simple Calculator
 
 ## Preview the project: https://amr-ali-saad.github.io/Calculator/
 
