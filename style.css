@@ -1,24 +1,49 @@
-*{
+* {
     padding: 0;
     margin: 0;
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
 }
-:root{
+
+:root {
     --calculator-bg-color: rgba(255, 255, 255, 0.548);
     --operator-bg-color: #000000d2;
     --operator-txt-color: rgb(255, 255, 255);
     --num-bg-color: #ffffffbd;
     --num-txt-color: #000;
-    --equl-bg-color: #ffbe3fbd;
+    --equl-bg-color: #fec820;
+    --equl-bg-color-d: #f0bb1e;
     --main-border: #eee;
 }
-body{
+
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--operator-txt-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--equl-bg-color);
+    border-radius: 25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--equl-bg-color-d);
+}
+
+body {
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
-.image{
+
+.image {
     background-image: url(img/wallpapersden.com_minimal-artistic-desert-sunset_5760x3240.jpg);
     background-position: center;
     background-repeat: no-repeat;
@@ -29,11 +54,12 @@ body{
     top: 0;
     left: 0;
 }
-.calculator{
+
+.calculator {
     position: absolute;
     top: 45%;
     left: 50%;
-    transform: translate(-50%,-50%) scale(1.2);
+    transform: translate(-50%, -50%) scale(1.2);
     width: 400px;
     background-color: var(--calculator-bg-color);
     border-radius: 20px;
@@ -42,15 +68,16 @@ body{
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 200px 400px;
-    grid-template-areas: "screen screen screen screen"                        "buttons buttons buttons buttons";
-    -webkit-transform: translate(-50%,-50%) scale(1.2);
-    -moz-transform: translate(-50%,-50%) scale(1.2);
-    -ms-transform: translate(-50%,-50%) scale(1.2);
-    -o-transform: translate(-50%,-50%) scale(1.2);
+    grid-template-areas: "screen screen screen screen" "buttons buttons buttons buttons";
+    -webkit-transform: translate(-50%, -50%) scale(1.2);
+    -moz-transform: translate(-50%, -50%) scale(1.2);
+    -ms-transform: translate(-50%, -50%) scale(1.2);
+    -o-transform: translate(-50%, -50%) scale(1.2);
 }
-.calculator .screen{
+
+.calculator .screen {
     position: relative;
     grid-area: screen;
     display: flex;
@@ -63,88 +90,113 @@ body{
     font-family: Menlo, Monaco, "Courier New", Courier, monospace;
     font-weight: bold;
 }
-.calculator .screen .result{
+
+.calculator .screen .opration {
+    display: flex;
+    width: 200px;
+    position: relative;
+}
+
+.calculator .screen .result {
     position: absolute;
     bottom: 20px;
     right: 20px;
     font-size: 45px;
 }
-.calculator .buttons{
+
+.calculator .buttons {
     grid-area: buttons;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(5,1fr);
-    grid-template-areas: " c c ÷ × "                        " seven eight nine plus "                        " four five six min "                        " one two three equal "                        " zero zero zero equal ";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: " c c ÷ × " " seven eight nine plus " " four five six min " " one two three equal " " zero zero dot equal ";
 }
 
-.calculator .buttons .C{
+.calculator .buttons .C {
     grid-area: c;
     /* border-top-left-radius: 20px; */
     background-color: var(--operator-bg-color);
     color: var(--operator-txt-color);
 }
-.calculator .buttons .del{
+
+.calculator .buttons .del {
     grid-area: del;
 }
-.calculator .buttons .÷{
+
+.calculator .buttons .÷ {
     grid-area: ÷;
 }
-.calculator .buttons .×{
+
+.calculator .buttons .dot {
+    grid-area: dot;
+}
+
+.calculator .buttons .× {
     grid-area: ×;
     /* border-top-right-radius: 20px; */
 }
 
 
-.calculator .buttons .seven{
+.calculator .buttons .seven {
     grid-area: seven;
 }
-.calculator .buttons .eight{
+
+.calculator .buttons .eight {
     grid-area: eight;
 }
-.calculator .buttons .nine{
+
+.calculator .buttons .nine {
     grid-area: nine;
 }
-.calculator .buttons .plus{
+
+.calculator .buttons .plus {
     grid-area: plus;
 }
 
 
-.calculator .buttons .four{
+.calculator .buttons .four {
     grid-area: four;
 }
-.calculator .buttons .five{
+
+.calculator .buttons .five {
     grid-area: five;
 }
-.calculator .buttons .six{
+
+.calculator .buttons .six {
     grid-area: six;
 }
-.calculator .buttons .min{
+
+.calculator .buttons .min {
     grid-area: min;
 }
 
 
-.calculator .buttons .one{
+.calculator .buttons .one {
     grid-area: one;
 }
-.calculator .buttons .two{
+
+.calculator .buttons .two {
     grid-area: two;
 }
-.calculator .buttons .three{
+
+.calculator .buttons .three {
     grid-area: three;
 }
-.calculator .buttons .equal{
+
+.calculator .buttons .equal {
     grid-area: equal;
 }
 
-.calculator .buttons .zero{
+.calculator .buttons .zero {
     grid-area: zero;
     border-bottom-left-radius: 20px;
 }
-.calculator .buttons .point{
+
+.calculator .buttons .point {
     grid-area: point;
 }
 
-.calculator .buttons div{
+.calculator .buttons div {
     padding: 10px;
     text-align: center;
 
@@ -161,37 +213,42 @@ body{
     -o-transition: all 0.3s ease-in-out;
 }
 
-.calculator .buttons div:active{
+.calculator .buttons div:active {
     border: 1px solid var(--main-border);
 }
-.calculator .buttons .num{
+
+.calculator .buttons .num {
     background-color: var(--num-bg-color);
     color: var(--num-txt-color);
 }
-.calculator .buttons .num:hover{
+
+.calculator .buttons .num:hover {
     background-color: #fff;
 }
-.calculator .buttons .operator{
+
+.calculator .buttons .operator {
     background-color: var(--operator-bg-color);
     color: var(--operator-txt-color);
 }
 
 
-.calculator .buttons .equal{
+.calculator .buttons .equal {
     background-color: var(--equl-bg-color);
     color: var(--operator-txt-color);
     border-bottom-right-radius: 20px;
 }
-.calculator .buttons .equal:hover{
+
+.calculator .buttons .equal:hover {
     background-color: #ffbe3f;
 }
+
 .calculator .buttons .operator:hover,
-.calculator .buttons .C:hover{
+.calculator .buttons .C:hover {
     background-color: #000000;
 }
 
 @media (max-width: 530px) {
-    .calculator{
+    .calculator {
         width: 100%;
         top: unset;
         left: unset;
@@ -208,7 +265,8 @@ body{
         -ms-border-radius: 0;
         -o-border-radius: 0;
     }
-    .calculator .buttons div{
+
+    .calculator .buttons div {
         border-radius: 0 !important;
     }
 }
