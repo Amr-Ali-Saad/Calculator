@@ -247,11 +247,10 @@ function keyboardCalculator() {
         }
     });
 }
-keyboardCalculator()
-
+keyboardCalculator();
 
 //A Failed Try (-_-) :-
-
+/*
 if (operationScreen.style.width == "200px") {
     operationScreen.style.fontSize = `calc(${operationScreen.style.fontSize}- 5px)`
     console.log(5);
@@ -266,7 +265,7 @@ if(screenLength == 13){
     operationScreen.style.fontSize = `${operationScreen.style.fontSize - 5}px`;
     console.log(5);
 }
-
+*/
 
 clear.addEventListener("click", function () {
     resultScreen.textContent = "";
@@ -278,10 +277,10 @@ equal.addEventListener("click", function () {
 });
 document.addEventListener("keydown", function (event) {
     let key = event.key;
-    if(key == "Enter"){
+    if (key == "Enter") {
         resultScreen.textContent = eval(operationScreen.textContent);
     }
-    if(key == "Backspace" || key == "Delete" || key == "c" || key == "C"){
+    if (key == "Backspace" || key == "Delete" || key == "c" || key == "C") {
         resultScreen.textContent = "";
         operationScreen.textContent = "";
     }
